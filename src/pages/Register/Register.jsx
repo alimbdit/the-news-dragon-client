@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useState } from "react";
 
@@ -9,6 +9,12 @@ const Register = () => {
 
   const {createUser, profileUpdate} = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
+  const navigate = useNavigate()
+
+ const location = useLocation();
+ console.log(location)
+
+ const from = location.state?.from?.from?.pathname || "/category/0";
 
 
   const handleRegister = event => {
@@ -23,6 +29,7 @@ const Register = () => {
     .then(result => {
       const createdUser = result.user;
       console.log(createdUser)
+      navigate(from)
     })
     .catch(error => {
       console.log(error)

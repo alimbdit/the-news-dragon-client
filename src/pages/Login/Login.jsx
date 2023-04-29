@@ -57,7 +57,7 @@ const Login = () => {
         </Button>
         <br />
         <Form.Text className="text-secondary">
-        Don't Have An Account ? <Link to='/register'>Register</Link>
+        Don't Have An Account ? <Link to='/register' state={{from:location.state}}>Register</Link>
           </Form.Text>
           <Form.Text className="text-success">
             
