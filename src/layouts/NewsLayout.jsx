@@ -5,8 +5,10 @@ import Footer from "../pages/Shared/Footer";
 import { Col, Container, Row } from "react-bootstrap";
 
 import RightNav from "../pages/Shared/RightNav/RightNav";
+import useTitle from "../hooks/useTitle";
 
 const NewsLayout = () => {
+  useTitle('news-details')
   return (
     <div>
       <Header></Header>
